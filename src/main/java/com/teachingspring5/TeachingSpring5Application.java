@@ -1,13 +1,16 @@
 package com.teachingspring5;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
 public class TeachingSpring5Application {
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppContext.class);
 
-	public static void main(String[] args) {
-		SpringApplication.run(TeachingSpring5Application.class, args);
-	}
+        Greeter g = ctx.getBean("greeter", Greeter.class);
+        String massage = g.greet("Spring");
+
+        System.out.println(massage);
+        ctx.close();
+    }
 
 }
