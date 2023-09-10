@@ -80,10 +80,10 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        ChangePasswordService changePwdSvc =
-                context.getBean("changePwdSvc", ChangePasswordService.class);
+        ChangePasswordService changePasswordService =
+                context.getBean("changePasswordService", ChangePasswordService.class);
         try {
-            changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
+            changePasswordService.changePassword(arg[1], arg[2], arg[3]);
             System.out.println("암호를 변경했습니다.\n");
         } catch (MemberNotFoundException e) {
             System.out.println("존재하지 않는 이메일입니다.\n");

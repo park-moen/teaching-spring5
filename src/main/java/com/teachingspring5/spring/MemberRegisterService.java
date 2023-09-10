@@ -1,15 +1,21 @@
 package com.teachingspring5.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDateTime;
 
 public class MemberRegisterService {
-    private final MemberDao memberDao;
+    @Autowired
+    private MemberDao memberDao;
+
+    public MemberRegisterService() {
+    }
 
     public MemberRegisterService(MemberDao memberDao) {
         this.memberDao = memberDao;
     }
 
-    public Long register(RegisterRequest req) {
+    public void register(RegisterRequest req) {
         Member member = memberDao.selectByEmail(req.getEmail());
 
         if (member != null) {
@@ -24,6 +30,5 @@ public class MemberRegisterService {
         );
         memberDao.insert(newMember);
 
-        return newMember.getId();
     }
 }

@@ -1,5 +1,7 @@
 package com.teachingspring5.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ChangePasswordService {
     private MemberDao memberDao;
 
@@ -15,6 +17,7 @@ public class ChangePasswordService {
 
     }
 
+    @Autowired
     public void setMemberDao(MemberDao memberDao) {
         this.memberDao = memberDao;
     }
