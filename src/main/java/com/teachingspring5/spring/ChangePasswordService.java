@@ -1,7 +1,10 @@
 package com.teachingspring5.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ChangePasswordService {
     private MemberDao memberDao;
 
@@ -18,6 +21,7 @@ public class ChangePasswordService {
     }
 
     @Autowired
+    @Qualifier("memberDao")
     public void setMemberDao(MemberDao memberDao) {
         this.memberDao = memberDao;
     }

@@ -1,17 +1,20 @@
 package com.teachingspring5.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Component
 public class MemberRegisterService {
-    @Autowired
     private MemberDao memberDao;
 
     public MemberRegisterService() {
     }
 
-    public MemberRegisterService(MemberDao memberDao) {
+    @Autowired
+    public MemberRegisterService(@Qualifier("memberDao") MemberDao memberDao) {
         this.memberDao = memberDao;
     }
 

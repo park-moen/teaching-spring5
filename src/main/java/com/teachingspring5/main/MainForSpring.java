@@ -55,7 +55,7 @@ public class MainForSpring {
             return;
         }
 
-        MemberRegisterService memberRegisterService = context.getBean("memberRegisterService", MemberRegisterService.class);
+        MemberRegisterService memberRegisterService = context.getBean(MemberRegisterService.class);
         RegisterRequest req = new RegisterRequest();
 
         req.setEmail(arg[1]);
@@ -80,8 +80,7 @@ public class MainForSpring {
             printHelp();
             return;
         }
-        ChangePasswordService changePasswordService =
-                context.getBean("changePasswordService", ChangePasswordService.class);
+        ChangePasswordService changePasswordService = context.getBean(ChangePasswordService.class);
         try {
             changePasswordService.changePassword(arg[1], arg[2], arg[3]);
             System.out.println("암호를 변경했습니다.\n");
@@ -102,7 +101,7 @@ public class MainForSpring {
     }
 
     private static void processListCommand() {
-        MemberListPrinter memberListPrinter = context.getBean("memberListPrinter", MemberListPrinter.class);
+        MemberListPrinter memberListPrinter = context.getBean("listPrinter", MemberListPrinter.class);
 
         memberListPrinter.printAll();
     }
@@ -113,7 +112,7 @@ public class MainForSpring {
             return;
         }
 
-        MemberInfoPrinter memberInfoPrinter = context.getBean("memberInfoPrinter", MemberInfoPrinter.class);
+        MemberInfoPrinter memberInfoPrinter = context.getBean("infoPrinter", MemberInfoPrinter.class);
 
         memberInfoPrinter.printMemberInfo(arg[1]);
     }
