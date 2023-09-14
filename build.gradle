@@ -17,6 +17,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.tomcat:tomcat-jdbc'
+	implementation 'org.slf4j:slf4j-api'
+	testImplementation 'ch.qos.logback:logback-classic'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

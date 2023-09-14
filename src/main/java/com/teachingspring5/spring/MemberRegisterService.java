@@ -1,6 +1,7 @@
 package com.teachingspring5.spring;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 public class MemberRegisterService {
     private final MemberDao memberDao;
@@ -9,7 +10,7 @@ public class MemberRegisterService {
         this.memberDao = memberDao;
     }
 
-    public Long register(RegisterRequest req) {
+    public void register(RegisterRequest req) {
         Member member = memberDao.selectByEmail(req.getEmail());
 
         if (member != null) {
@@ -24,6 +25,5 @@ public class MemberRegisterService {
         );
         memberDao.insert(newMember);
 
-        return newMember.getId();
     }
 }
